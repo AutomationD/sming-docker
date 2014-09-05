@@ -26,7 +26,7 @@ RUN /bin/bash -c '. /.nvm/nvm.sh && \
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
-RUN git clone https://github.com/ajaxorg/cloud9/ 
+RUN git clone https://github.com/ajaxorg/cloud9/ /cloud9
 WORKDIR /cloud9
 RUN npm install
 
