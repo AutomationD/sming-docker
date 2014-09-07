@@ -53,6 +53,10 @@ RUN mkdir /workspace
 VOLUME /workspace
 
 # ------------------------------------------------------------------------------
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# ------------------------------------------------------------------------------
 # Expose ports.
 EXPOSE 3131
 
