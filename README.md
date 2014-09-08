@@ -20,7 +20,7 @@ Download automated build from public Docker Hub Registry: docker pull kdelfour/c
     
 You can add a workspace as a volume directory with the argument *-v /your-path/workspace/://workspace* like this :
 
-    docker run -it --rm -v /your-path/workspace/://workspace kdelfour/cloud9-docker
+    docker run -it --rm -p 3131:3131 -v /your-path/workspace/://workspace kdelfour/cloud9-docker
     
 ## Build and run with custom config directory
 
@@ -35,6 +35,6 @@ Build it
     
 And run
 
-    sudo docker run -d -v /your-path/workspace/://workspace kdelfour/cloud9-docker $USER/cloud9-docker:latest
+    sudo docker run -d -p 3131:3131 -v /your-path/workspace/://workspace kdelfour/cloud9-docker $USER/cloud9-docker:latest
     
 Enjoy !!    
