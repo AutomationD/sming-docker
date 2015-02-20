@@ -14,21 +14,12 @@ RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git lib
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get install -y nodejs
-
-# ------------------------------------------------------------------------------
-# Install NVM
-RUN git clone https://github.com/creationix/nvm.git /.nvm
-RUN echo ". /.nvm/nvm.sh" >> /etc/bash.bashrc
-RUN /bin/bash -c '. /.nvm/nvm.sh && \
-    nvm install v0.10.18 && \
-    nvm use v0.10.18 && \
-    nvm alias default v0.10.18'
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
-RUN git clone git@github.com:c9/core.git /cloud9
-WORKDIR /cloud9/scripts/
-RUN install-sdk.sh
+RUN git clone https://github.com/c9/core.git /cloud9
+WORKDIR /cloud9
+RUN scripts/install-sdk.sh
 
 # Add supervisord conf
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
