@@ -26,24 +26,10 @@ RUN /bin/bash -c '. /.nvm/nvm.sh && \
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
-RUN git clone https://github.com/ajaxorg/cloud9/ /cloud9
-WORKDIR /cloud9
-RUN npm install
+RUN git clone git@github.com:c9/core.git /cloud9
+WORKDIR /cloud9/scripts/
+RUN install-sdk.sh
 
-RUN npm install -g sm
-
-WORKDIR /cloud9/node_modules/ace
-RUN make clean build
-
-WORKDIR /cloud9/node_modules/packager
-RUN rm -rf node_modules
-RUN sm install
-    
-WORKDIR /cloud9
-CMD ["make"]
-
-RUN node ./node_modules/mappings/scripts/postinstall-notice.js
-    
 # Add supervisord conf
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
 
@@ -58,7 +44,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # ------------------------------------------------------------------------------
 # Expose ports.
-EXPOSE 3131
+EXPOSE 8181
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
