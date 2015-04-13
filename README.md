@@ -4,7 +4,7 @@ Cloud9 v3 Dockerfile
 This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
 
 # Base Docker Image
-[dockerfile/supervisor](https://registry.hub.docker.com/u/dockerfile/supervisor/)
+[kdelfour/supervisor-docker](https://registry.hub.docker.com/u/kdelfour/supervisor-docker/)
 
 # Installation
 
