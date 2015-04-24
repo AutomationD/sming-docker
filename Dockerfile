@@ -35,7 +35,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # ------------------------------------------------------------------------------
 # Expose ports.
-EXPOSE 8181
+EXPOSE 80
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
