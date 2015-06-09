@@ -38,7 +38,7 @@ RUN scripts/install-sdk.sh
 
 # ------------------------------------------------------------------------------
 # Install Additional npm Packages
-RUN export CXXFLAGS=-I/usr/lib/llvm-3.4/include
+ENV CXXFLAGS=-I/usr/lib/llvm-3.4/include
 RUN npm install clang_tool
 
 # Tweak standlone.js conf
