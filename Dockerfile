@@ -11,6 +11,16 @@ RUN apt-get update
 RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim
 
 # ------------------------------------------------------------------------------
+# Install sshd
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:root' | chpasswd
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+# ------------------------------------------------------------------------------
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get install -y nodejs
@@ -45,7 +55,8 @@ RUN npm install clang_tool
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /opt/cloud9/configs/standalone.js 
 
 # Add supervisord conf
-ADD conf/cloud9.conf /etc/supervisor/conf.d/
+ADD conf/sming.conf /etc/supervisor/conf.d/
+ADD conf/sshd.conf /etc/supervisor/conf.d/
 
 # ------------------------------------------------------------------------------
 # Add volumes
@@ -65,6 +76,9 @@ RUN git clone https://github.com/anakod/Sming.git /opt/sming
 # Clone Sming Examples
 RUN git clone https://github.com/anakod/Sming.git /root/sming-examples
 
+
+
+
 # ------------------------------------------------------------------------------
 # Enviromnent settings
 ENV ESP_HOME /opt/esp-open-sdk
@@ -72,6 +86,7 @@ ENV SMING_HOME /opt/sming/Sming
 
 # ------------------------------------------------------------------------------
 # Expose ports.
+EXPOSE 22
 EXPOSE 80
 EXPOSE 3000
 
