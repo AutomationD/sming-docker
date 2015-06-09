@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Based on a work at https://github.com/docker/docker.
+# Based on a work at https://github.com/docker/docker & https://github/kdelfour/supervisor-docker
 # ------------------------------------------------------------------------------
 # Pull base image.
 FROM kdelfour/supervisor-docker
@@ -17,13 +17,12 @@ RUN apt-get install -y nodejs
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
-RUN mkdir -p /opt/cloud9
 RUN git clone https://github.com/c9/core.git /opt/cloud9
 WORKDIR /opt/cloud9
 RUN scripts/install-sdk.sh
 
 # Tweak standlone.js conf
-RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
+RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /opt/cloud9/configs/standalone.js 
 
 # Add supervisord conf
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
