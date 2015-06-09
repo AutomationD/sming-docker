@@ -17,8 +17,9 @@ RUN apt-get install -y nodejs
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
-RUN git clone https://github.com/c9/core.git /cloud9
-WORKDIR /cloud9
+RUN mkdir -p /opt/cloud9
+RUN git clone https://github.com/c9/core.git /opt/cloud9
+WORKDIR /opt/cloud9
 RUN scripts/install-sdk.sh
 
 # Tweak standlone.js conf
@@ -29,8 +30,8 @@ ADD conf/cloud9.conf /etc/supervisor/conf.d/
 
 # ------------------------------------------------------------------------------
 # Add volumes
-RUN mkdir /workspace
-VOLUME /workspace
+RUN mkdir -p /root/workspace
+VOLUME /root/workspace
 
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
