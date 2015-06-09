@@ -41,7 +41,6 @@ RUN scripts/install-sdk.sh
 RUN export CXXFLAGS=-I/usr/lib/llvm-3.4/include
 RUN npm install clang_tool
 
-
 # Tweak standlone.js conf
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /opt/cloud9/configs/standalone.js 
 
@@ -56,6 +55,15 @@ VOLUME /root/workspace
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+# ------------------------------------------------------------------------------
+# Clone Sming Core
+RUN git clone https://github.com/anakod/Sming.git /opt/sming
+
+# ------------------------------------------------------------------------------
+# Clone Sming Examples
+RUN git clone https://github.com/anakod/Sming.git /root/sming-examples
 
 # ------------------------------------------------------------------------------
 # Expose ports.
