@@ -25,6 +25,7 @@ RUN wget https://bintray.com/artifact/download/kireevco/generic/spiffy-linux-1.0
 # ------------------------------------------------------------------------------
 # Install esp-open-sdk
 WORKDIR /tmp/
+RUN mkdir -p /opt/esp-open-sdk
 RUN wget https://bintray.com/artifact/download/kireevco/generic/esp-open-sdk-linux-1.0.1.tar.gz && tar -zxf esp-open-sdk-linux-1.0.1.tar.gz -C /opt/esp-open-sdk
 
 
