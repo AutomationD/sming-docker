@@ -34,7 +34,7 @@ Install latest [boot2docker](https://github.com/boot2docker/osx-installer/releas
 boot2docker init
 boot2docker up
 export DOCKER_IP=$(boot2docker ip 2>/dev/null)
-export DOCKER_HOST="tcp://${DOCKER_IP}:2375"
+export DOCKER_HOST="tcp://${DOCKER_IP}:2376"
 
 docker pull kireevco/sming-docker
 mkdir -p ~/docker/sming-docker/workspace/
