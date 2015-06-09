@@ -24,7 +24,7 @@ mkdir -p ~/docker/sming-docker/workspace/
 cd $SMING_WORKSPACE
 
 docker pull kireevco/sming-docker
-docker run -it -d -p 8181:80 kireevco/sming-docker
+docker run -it -d -p 8181:80 --device=/dev/ttyUSB0 kireevco/sming-docker
 
 start http://$DOCKER_IP:8181
 ```
@@ -40,11 +40,9 @@ export SMING_WORKSPACE=~/docker/sming-docker/workspace/
 mkdir -p ~/docker/sming-docker/workspace/
 
 docker pull kireevco/sming-docker
-docker run -it -d -p 8181:80 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
 open http://$DOCKER_IP:8181
 ```
 
-Add usb port forwarding
-```
-VboxManage ...
-```
+In order to flash firmware to your device you need to confugre usb port forwarding. Start your virtualbox, stop your boot2docker vm and add USB to your port forwarding:
+![](http://i.imgur.com/x1Po4Yl.png)
