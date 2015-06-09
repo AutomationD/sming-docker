@@ -12,7 +12,7 @@ This repository contains Dockerfile of Cloud9 IDE for Docker's automated build p
 
 ### Windows
 Install latest [boot2docker](https://github.com/boot2docker/windows-installer/releases) (+mysys git recommended)
-```cmd
+```
 boot2docker init
 boot2docker up
 
@@ -30,7 +30,7 @@ start http://%DOCKER_IP%:8181
 
 ### MacOS
 Install latest [boot2docker](https://github.com/boot2docker/osx-installer/releases)
-```shell
+```
 boot2docker init
 boot2docker up
 export DOCKER_IP=$(boot2docker ip 2>/dev/null)
