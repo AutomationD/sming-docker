@@ -1,10 +1,7 @@
-Cloud9 v3 Dockerfile
+Sming Docker
 =============
 
-This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
-
-# Base Docker Image
-[kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker/)
+This repository contains Dockerfile of [Sming framework](github.com/anakod/Sming), [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) and [Cloud9 IDE](https://github.com/c9/core) with [Cloud 9 C++ Plugin](https://github.com/invokr/c9.ide.language.cpp). Automated build published to the public Docker Hub Registry.
 
 # Installation
 
@@ -46,3 +43,5 @@ open http://$DOCKER_IP:8181
 
 In order to flash firmware to your device you need to confugre usb port forwarding. Start your virtualbox, stop your boot2docker vm and add USB to your port forwarding:
 ![](http://i.imgur.com/x1Po4Yl.png)
+
+_Based on [kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker/)_
