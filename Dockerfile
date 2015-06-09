@@ -8,7 +8,7 @@ MAINTAINER Kevin Delfour <kevin@delfour.eu>
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1
+RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev
 
 # ------------------------------------------------------------------------------
 # Install Node.js
@@ -38,6 +38,7 @@ RUN scripts/install-sdk.sh
 
 # ------------------------------------------------------------------------------
 # Install Additional npm Packages
+RUN export CXXFLAGS=-I/usr/lib/llvm-3.4/include
 RUN npm install clang_tool
 
 
