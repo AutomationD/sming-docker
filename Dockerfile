@@ -66,6 +66,11 @@ RUN git clone https://github.com/anakod/Sming.git /opt/sming
 RUN git clone https://github.com/anakod/Sming.git /root/sming-examples
 
 # ------------------------------------------------------------------------------
+# Enviromnent settings
+ENV ESP_HOME /opt/esp-open-sdk
+ENV SMING_HOME /opt/sming/Sming
+
+# ------------------------------------------------------------------------------
 # Expose ports.
 EXPOSE 80
 EXPOSE 3000
