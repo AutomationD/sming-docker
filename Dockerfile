@@ -8,7 +8,7 @@ MAINTAINER Kevin Delfour <kevin@delfour.eu>
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev
+RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim
 
 # ------------------------------------------------------------------------------
 # Install Node.js
@@ -27,7 +27,7 @@ RUN wget https://bintray.com/artifact/download/kireevco/generic/spiffy-linux-1.0
 WORKDIR /tmp/
 RUN mkdir -p /opt/esp-open-sdk
 RUN wget https://bintray.com/artifact/download/kireevco/generic/esp-open-sdk-linux-1.0.1.tar.gz && tar -zxf esp-open-sdk-linux-1.0.1.tar.gz -C /opt/esp-open-sdk
-
+RUN chmod +rx /opt/esp-open-sdk/sdk/tools/gen_appbin.py
 
 
 # ------------------------------------------------------------------------------
