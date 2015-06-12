@@ -7,18 +7,30 @@ MAINTAINER Kevin Delfour <kevin@delfour.eu>
 
 # ------------------------------------------------------------------------------
 # Install base
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get clean
 RUN apt-get update
 RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim
 
 # ------------------------------------------------------------------------------
 # Install sshd
-RUN apt-get update && apt-get install -y openssh-server
+RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+
+# ------------------------------------------------------------------------------
+# Install openjdk-7 & yuicompressor
+RUN apt-get install -y openjdk-7-jre
+WORKDIR /tmp
+RUN wget https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar
+RUN mv /tmp/yuicompressor-2.4.8.jar /usr/local/share/
+RUN echo "java -jar /usr/local/share/yuicompressor-2.4.8.jar \"\$@\"" > /usr/local/bin/yuicompressor
+RUN chmod 755 /usr/local/bin/yuicompressor
+
 
 # ------------------------------------------------------------------------------
 # Install Node.js
@@ -59,9 +71,8 @@ ADD conf/sming.conf /etc/supervisor/conf.d/
 ADD conf/sshd.conf /etc/supervisor/conf.d/
 
 # ------------------------------------------------------------------------------
-# Add volumes
+# Create workdir
 RUN mkdir -p /root/workspace
-VOLUME /root/workspace
 
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
@@ -71,12 +82,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # ------------------------------------------------------------------------------
 # Clone Sming Core
 RUN git clone https://github.com/anakod/Sming.git /opt/sming
-
-# ------------------------------------------------------------------------------
-# Clone Sming Examples
-RUN git clone https://github.com/anakod/Sming.git /root/sming-examples
-
-
+ln -s /opt/sming /root/sming-examples/
 
 
 # ------------------------------------------------------------------------------
