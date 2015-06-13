@@ -82,7 +82,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # ------------------------------------------------------------------------------
 # Clone Sming Core
-RUN git clone https://github.com/anakod/Sming.git /opt/sming
+RUN git clone https://github.com/kireevco/Sming.git /opt/sming
 RUN ln -s /opt/sming /root/sming-examples
 
 
