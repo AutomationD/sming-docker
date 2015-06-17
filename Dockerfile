@@ -4,13 +4,16 @@
 # Pull base image.
 FROM ubuntu
 
+ENV SDK_VERSION "1.1.1"
+ENV VERSION="0.1.0"
 
+LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}"
 # ------------------------------------------------------------------------------
 # Install base
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean
 RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim
+RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim screen
 
 # ------------------------------------------------------------------------------
 # Install Supervisor.
@@ -54,7 +57,7 @@ RUN wget https://bintray.com/artifact/download/kireevco/generic/spiffy-linux-1.0
 # Install esp-open-sdk
 WORKDIR /tmp/
 RUN mkdir -p /opt/esp-open-sdk
-RUN wget https://bintray.com/artifact/download/kireevco/generic/esp-open-sdk-1.1.1-linux-x86_64.tar.gz && tar -zxf esp-open-sdk-1.1.1-linux-x86_64.tar.gz -C /opt/esp-open-sdk
+RUN wget https://bintray.com/artifact/download/kireevco/generic/esp-open-sdk-${SDK_VERSION-linux-x86_64.tar.gz && tar -zxf esp-open-sdk-${SDK_VERSION}-linux-x86_64.tar.gz -C /opt/esp-open-sdk
 RUN chmod +rx /opt/esp-open-sdk/sdk/tools/gen_appbin.py
 
 
@@ -96,6 +99,7 @@ ENV SMING_HOME /opt/sming/Sming
 EXPOSE 22
 EXPOSE 80
 EXPOSE 3000
+
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
