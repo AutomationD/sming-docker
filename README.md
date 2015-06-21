@@ -2,13 +2,14 @@ Sming Docker
 =============
 Sming docker container is used to simplify environment configuration for cross-platform systems. 
 - Features (beta)
+  - [KiteMatic](http://kitematic.com) integration for Windows & MacOS
   - Out-of-the-box experience, just run the docker container
   - Fully tested and compatible ESP8266 dev environment without hassle
   - Web-Browser IDE (no Eclipse required)
   - Firmware flashing
 
 - TODO (soon)
-  - [KiteMatic](http://kitematic.com) integration for Windows
+  
   - Convinient terminal connection via _(?)remserial_
 
 
@@ -17,18 +18,47 @@ Sming docker container is used to simplify environment configuration for cross-p
 ## Prerequisites:
 - This HOWTO is using docker-machine: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
 
-## MacOS & Linux
-Download latest docker-machine and docker client:
+## MacOS
+Download and install latest [Kitematic](https://kitematic.com/download/):
 
-```
-curl -L https://github.com/docker/machine/releases/download/v0.2.0/docker-machine_darwin-amd64 > /usr/local/bin/docker-machine
-curl -L https://get.docker.com/builds/Darwin/x86_64/docker-latest > /usr/local/bin/docker
-chmod +x /usr/local/bin/docker-machine
-chmod +x /usr/local/bin/docker
+### Get sming-docker container from docker hub
+- Click _New_
+- Search for `sming`
+- Click _Create_
 
-docker-machine -v
-docker-machine create --driver virtualbox dev
+### Open Docker CLI
+![](http://i.imgur.com/bR6uUne.png)
+
+### Make sure to add USB port forwarding
+Stop docker-machine
 ```
+docker-machine stop dev
+```
+Configure VirtualBox
+![](http://i.imgur.com/x1Po4Yl.png)
+
+This will allow docker get access to usb2serial device connected to our host computer.
+
+Run docker container with usb port forwarding (from Docker cli)
+```
+docker run -it -d -p 8181:80 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
+```
+_USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` portion_, `~/docker/sming-docker/workspace/` also has to exist.
+
+
+#### Open a browser pointing to c9 IDE
+
+![](http://i.imgur.com/FJrHQHp.png)
+
+## Windows
+Download and install latest [Kitematic](https://kitematic.com/download/):
+### Get sming-docker container from docker hub
+- Click _New_
+- Search for `sming`
+- Click _Create_
+
+### Open Docker CLI
+![](http://i.imgur.com/bR6uUne.png)
 
 ### Make sure to add USB port forwarding
 Stop docker-machine
@@ -40,69 +70,15 @@ Configure VirtualBox:
 
 This will allow docker get access to usb2serial device connected to our host computer.
 
-
-#### Pull latest docker container
-```
-docker pull kireevco/sming-docker
-```
-
-Run docker container with usb port forwarding
-```
-eval "$(docker-machine env dev)"
-docker run -it -d -p 8181:80 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
-```
-_USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` portion_
-
-
-#### Open a browser pointing to c9 IDE
-```
-open http://$(docker-machine ip dev):8181
-```
-
-
-## Windows
-
-### Install MsysGit
-Use [msysgit](https://msysgit.github.io/) package _OR_ via chocolatey:
-```cmd
-::cmd (Admin)
-choco install git
-```
-Make sure to add it to PATH:
-```cmd
-::cmd (Admin)
-setx PATH /M "C:\Program Files (x86)\Git\bin;%PATH%" && set PATH="C:\Program Files (x86)\Git\bin;%PATH%"
-```
-
-### Start bash.exe and run following commands
-```
-curl -L https://github.com/docker/machine/releases/download/v0.2.0/docker-machine_windows-amd64.exe > /bin/docker-machine --insecure
-curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker 
-```
-
-Make sure to add your usb port forwarding to Virtual Box.
-```
-docker-machine stop dev
-```
-![](http://i.imgur.com/x1Po4Yl.png)
-This will allow docker get access to usb2serial device connected to our host computer.
-
-### Pull latest docker container
-```
-docker pull kireevco/sming-docker
-```
-
+Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
 ```
-eval "$(docker-machine env dev)"
-docker run -it -d -p 8181:80 --device=//dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
 ```
-_USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_
+_USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
 
 #### Open a browser pointing to c9 IDE
-```
-start http://$(docker-machine ip dev):8181
-```
+![](http://i.imgur.com/FJrHQHp.png)
 
 # Eclipse IDE (optional)
 ![](http://i.imgur.com/rsHcB4f.png)
