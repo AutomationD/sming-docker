@@ -41,7 +41,7 @@ This will allow docker get access to usb2serial device connected to our host com
 
 Run docker container with usb port forwarding (from Docker cli)
 ```
-docker run -it -d -p 8181:80 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
 ```
 _USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` portion_, `~/docker/sming-docker/workspace/` also has to exist.
 
@@ -73,7 +73,7 @@ This will allow docker get access to usb2serial device connected to our host com
 Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
 ```
-docker run -it -d -p 8181:80 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 -p 8122:22 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
 ```
 _USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
 
@@ -81,21 +81,7 @@ _USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` por
 ![](http://i.imgur.com/FJrHQHp.png)
 
 # Eclipse IDE (optional)
-![](http://i.imgur.com/rsHcB4f.png)
 
-You can also use [Eclipse for Parallel Application Developers](http://www.eclipse.org/downloads/packages/eclipse-parallel-application-developers/lunasr2) that will allow you to connect to use Eclipse IDE and use your docker environment.
-
-- Create New C/C++ remote project
-- Configure ssh connectivity to your sming docker instance
-  - __Host__: Run ```docker-machine ip dev``` to get the ip.
-  - __Username__: _root_
-  - __Password__: _root_
-  - __Project Home__: ```/root/workspace```
-- Configure remote include paths (TBD)
-
-
-You can also use eclipse as a terminal (ssh client):
-![](http://i.imgur.com/YUWsFGL.png)
 
 
 ---
