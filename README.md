@@ -73,7 +73,7 @@ This will allow docker get access to usb2serial device connected to our host com
 Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
 ```
-docker run -it -d -p 8181:80 -p 8122:22 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
 ```
 _USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
 
