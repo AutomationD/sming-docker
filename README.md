@@ -81,7 +81,8 @@ _USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` por
 ![](http://i.imgur.com/FJrHQHp.png)
 
 # Eclipse IDE (optional)
-
+Eclipse can connect to a docker container and use docker environment to build. 
+See [](ECLIPSE.md)
 
 
 ---
