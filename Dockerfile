@@ -99,8 +99,15 @@ RUN ln -s /opt/sming /root/sming-examples
 
 # ------------------------------------------------------------------------------
 # Enviromnent settings
-ENV ESP_HOME /opt/esp-open-sdk
-ENV SMING_HOME /opt/sming/Sming
+ENV ESP_HOME="/opt/esp-open-sdk"
+ENV SMING_HOME="/opt/sming/Sming"
+ENV CXX="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-g++"
+ENV CC="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc"
+ENV PATH="/opt/esp-open-sdk/xtensa-lx106-elf/bin:${PATH}"
+ENV C_INCLUDE_PATH="${ESP_HOME}/sdk/include:${SMING_HOME}/include:${SMING_HOME}/SmingCore:${SMING_HOME}/system/include:${SMING_HOME}/Libraries:/opt/sming"
+ENV CPLUS_INCLUDE_PATH=${C_INCLUDE_PATH}
+
+RUN env > /etc/environment
 
 # ------------------------------------------------------------------------------
 # Expose ports.
