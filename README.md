@@ -70,7 +70,7 @@ docker pull sming-docker
 Run the conatiner, binding directory with workspace to the container and binding container's ports to localhost:
 ```
 docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
--v ~/my_workspace/esp8266:/root/workspace:rw 
+-v ~/my_workspace/esp8266:/root/workspace:rw \
 kireevco/sming-docker
 ```
 
@@ -78,7 +78,7 @@ If you want to use git inside the container, it's good to make your keys availab
 ```
 docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
 -v ~/.ssh:/root/.ssh \
--v ~/my_workspace/esp8266:/root/workspace:rw 
+-v ~/my_workspace/esp8266:/root/workspace:rw \
 kireevco/sming-docker
 ```
 
