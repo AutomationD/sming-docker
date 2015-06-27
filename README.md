@@ -16,7 +16,7 @@ Sming docker container is used to simplify environment configuration for cross-p
 # Install & Configure Docker
 
 ## Prerequisites:
-- This HOWTO is using docker-machine: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
+- This HOWTO is using docker-machine for MacOS and Windows: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
 
 ## MacOS
 Download and install latest [Kitematic](https://kitematic.com/download/):
@@ -113,6 +113,13 @@ docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
 -v ~/my_workspace/esp8266:/root/workspace:rw \
 kireevco/sming-docker
 ```
+
+If you want to make your USB-serial converter available in the container, add:
+```
+--device=/dev/ttyUSB0
+```
+to the ```docker run``` command above, but this will force you to have it attached to USB every time you start the container.
+
 Now just open in your browser [cloud9 IDE](http://localhost:8180/).
 
 # Eclipse IDE (optional)
@@ -122,7 +129,5 @@ See [](ECLIPSE.md)
 
 ---
 This repository contains Dockerfile of [Sming framework](github.com/anakod/Sming), [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) and [Cloud9 IDE](https://github.com/c9/core) with [Cloud 9 C++ Plugin](https://github.com/invokr/c9.ide.language.cpp). Automated build published to the public Docker Hub Registry.
->>>>>>> dd9df081c442c898c3aa1d1ad84d9c4b61e44c80
-
 
 _Based on [kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker/)_
