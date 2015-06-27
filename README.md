@@ -49,8 +49,6 @@ In order to flash firmware to your device you need to confugre usb port forwardi
 
 
 ### Linux
-Use native docker
-
 Install latest docker [for your distro](https://docs.docker.com/installation/). For ubuntu run (this will add docker PPA repo also):
 ```
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -71,14 +69,19 @@ docker pull sming-docker
 
 Run the conatiner, binding directory with workspace to the container and binding container's ports to localhost:
 ```
-docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000  -v ~/my_workspace/esp8266:/root/workspace:rw kireevco/sming-docker
+docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
+-v ~/my_workspace/esp8266:/root/workspace:rw 
+kireevco/sming-docker
 ```
 
 If you want to use git inside the container, it's good to make your keys available inside. Use the following command instead:
 ```
-docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000  -v ~/.ssh:/root/.ssh -v ~/my_workspace/esp8266:/root/workspace:rw kireevco/sming-docker
+docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
+-v ~/.ssh:/root/.ssh \
+-v ~/my_workspace/esp8266:/root/workspace:rw 
+kireevco/sming-docker
 ```
 
-Now just open in your browser [cloud9 IDE](http://localhost:8180/)
+Now just open in your browser [cloud9 IDE](http://localhost:8180/).
 
 _Based on [kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker/)_
