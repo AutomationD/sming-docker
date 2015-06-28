@@ -2,7 +2,6 @@ Troubleshooting Kitematic / Docker
 =============
 
 If you got stuck with sming-docker this document will try to help you. Follow the instructions.
-# MacOS
 
 # Windows
 Windows version of Kitematic is still quite new. You can also try bare-bones [docker-machine](https://github.com/kireevco/sming-docker/blob/master/DOCKER-MACHINE.md) way.
@@ -27,7 +26,11 @@ If nothing is helping, try completely reinstalling everything.
 - Download new setup file for Kitematic
 - Run Kitematic setup as administrator & follow the guidelines
 
+# MacOS
+TBD, PRs are welcome
+
 # Linux
+TBD, PRs are welcome
 
 ## Getting more information about WHY Kitematic VM is not working
 In order to get more detail about why kitematic VM is not starting do the following:

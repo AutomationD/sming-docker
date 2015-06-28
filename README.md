@@ -22,6 +22,43 @@ Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You ca
 ## Prerequisites:
 - This HOWTO is using docker-machine for MacOS and Windows: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
 
+## Windows
+- Download and install latest [Kitematic](https://kitematic.com/download/)
+- Make sure `c:\Users\<Your_Username>\sming` exists
+
+### Get sming-docker container from docker hub
+- Click _New_
+- Search for `sming`
+- Click _Create_
+
+### Open Docker CLI
+![](http://i.imgur.com/bR6uUne.png)
+
+### Make sure to add USB port forwarding
+Stop docker-machine
+```
+docker-machine stop dev
+```
+Configure VirtualBox:
+![](http://i.imgur.com/x1Po4Yl.png)
+
+This will allow docker get access to usb2serial device connected to our host computer.
+
+Start docker-machine back
+```
+docker-machine start dev
+```
+
+Run docker container with usb port forwarding (from Docker cli)
+### Run docker container with usb port forwarding
+```
+docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
+```
+_USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
+
+#### Open a browser pointing to c9 IDE
+![](http://i.imgur.com/FJrHQHp.png)
+
 ## MacOS
 - Download and install latest [Kitematic](https://kitematic.com/download/):
 - Make sure `~/docker/sming-docker/workspace/` exists
@@ -60,43 +97,6 @@ _USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` port
 
 #### Open a browser pointing to c9 IDE
 
-![](http://i.imgur.com/FJrHQHp.png)
-
-## Windows
-- Download and install latest [Kitematic](https://kitematic.com/download/)
-- Make sure `c:\Users\<Your_Username>\sming` exists
-
-### Get sming-docker container from docker hub
-- Click _New_
-- Search for `sming`
-- Click _Create_
-
-### Open Docker CLI
-![](http://i.imgur.com/bR6uUne.png)
-
-### Make sure to add USB port forwarding
-Stop docker-machine
-```
-docker-machine stop dev
-```
-Configure VirtualBox:
-![](http://i.imgur.com/x1Po4Yl.png)
-
-This will allow docker get access to usb2serial device connected to our host computer.
-
-Start docker-machine back
-```
-docker-machine start dev
-```
-
-Run docker container with usb port forwarding (from Docker cli)
-### Run docker container with usb port forwarding
-```
-docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
-```
-_USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
-
-#### Open a browser pointing to c9 IDE
 ![](http://i.imgur.com/FJrHQHp.png)
 
 ## Linux
