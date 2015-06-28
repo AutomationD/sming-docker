@@ -5,7 +5,7 @@ You will need:
 - [NetBeans C/C++](https://netbeans.org/downloads/)
 - Project source files on your local machine (for instance, on Mac `~/docker/sming-docker/workspace/Test_Project` or `c:\Users\<Your_Username>\sming\Test_Project` on Windows. It should contain `Makefile` and `Makefile-user.mk`
 
-## Create New Remote Host
+## Create New Remote Host (only one time)
 ### On the _Services_ Tab Right click on the _C/C++ Build Hosts_
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/14204218-76e9-4a33-bde9-fd14d6402fa9/00000003.png)
 
@@ -27,7 +27,7 @@ Set remote server __Display name__: _sming_ and change __Access project files vi
 _Connect_ to sming instance and configure default connection
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/7e5f9280-d06a-4b81-9c85-986d475b3d19/00000007.png)
 
-## Create New Project
+## Create New Project (for every project)
 Select _C/C++ Project with Existing Sources_
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/46b75755-ae5d-4c12-8ea6-d9092ad56687/00000008.png)
 
