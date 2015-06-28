@@ -141,9 +141,10 @@ to the ```docker run``` command above, but this will force you to have it attach
 
 Now just open in your browser [cloud9 IDE](http://localhost:8180/).
 
-# Eclipse IDE (optional)
-Eclipse can connect to a docker container and use docker environment to build. 
-See [](ECLIPSE.md)
+# NetBeans IDE (optional)
+NetBeans can connect to a docker container and use docker environment to build.
+Code Completion & documentation works well.
+See [NETBEANS.md](NETBEANS.md)
 
 
 ---
