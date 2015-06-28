@@ -20,6 +20,7 @@ Sming docker container is used to simplify environment configuration for cross-p
 
 ## MacOS
 Download and install latest [Kitematic](https://kitematic.com/download/):
+Make sure `~/docker/sming-docker/workspace/` exists
 
 ### Get sming-docker container from docker hub
 - Click _New_
@@ -58,6 +59,8 @@ _USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` port
 
 ## Windows
 Download and install latest [Kitematic](https://kitematic.com/download/):
+Make sure `c:\Users\<Your_Username>\sming` exists
+
 ### Get sming-docker container from docker hub
 - Click _New_
 - Search for `sming`
