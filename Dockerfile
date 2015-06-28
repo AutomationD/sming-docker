@@ -72,15 +72,6 @@ RUN npm install
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /opt/cloud9/configs/standalone.js 
 
 # ------------------------------------------------------------------------------
-# Install Eclipse RSE Server
-RUN mkdir -p /opt/rseserver
-WORKDIR /opt/rseserver
-RUN wget http://mirror.cc.vt.edu/pub/eclipse/tm/downloads/drops/R-3.5GA-201305311734/rseserver-linux-3.5-GA.tar && tar -xf rseserver-linux-3.5-GA.tar && rm -rf rseserver-linux-3.5-GA.tar
-RUN cpan Shell
-
-
-
-# ------------------------------------------------------------------------------
 # Add supervisord configs
 ADD conf/* /etc/supervisor/conf.d/
 # ------------------------------------------------------------------------------
