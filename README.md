@@ -13,6 +13,10 @@ Sming docker container is used to simplify environment configuration for cross-p
   - Convinient terminal connection via _(?)remserial_
 
 
+If something is not working, please refer to [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You can use it instead of Kitematic.
+
+
 # Install & Configure Docker
 
 ## Prerequisites:
