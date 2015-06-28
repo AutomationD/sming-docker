@@ -19,13 +19,16 @@ setx PATH /M "C:\Program Files (x86)\Git\bin;%PATH%" && set PATH="C:\Program Fil
 ### Start bash.exe and run following commands
 ```
 curl -L https://github.com/docker/machine/releases/download/v0.2.0/docker-machine_windows-amd64.exe > /bin/docker-machine --insecure
-curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker 
+curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker
+docker-machine -v
+docker-machine create -d virtualbox dev
 ```
 
-Make sure to add your usb port forwarding to Virtual Box.
+Stop docker-machine
 ```
 docker-machine stop dev
 ```
+Make sure to add your usb port forwarding to Virtual Box.
 ![](http://i.imgur.com/x1Po4Yl.png)
 This will allow docker get access to usb2serial device connected to our host computer.
 
