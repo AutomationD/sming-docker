@@ -19,8 +19,9 @@ Sming docker container is used to simplify environment configuration for cross-p
 - This HOWTO is using docker-machine for MacOS and Windows: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
 
 ## MacOS
-Download and install latest [Kitematic](https://kitematic.com/download/):
-Make sure `~/docker/sming-docker/workspace/` exists
+- Download and install latest [Kitematic](https://kitematic.com/download/):
+- Make sure `~/docker/sming-docker/workspace/` exists
+
 
 ### Get sming-docker container from docker hub
 - Click _New_
@@ -58,8 +59,8 @@ _USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` port
 ![](http://i.imgur.com/FJrHQHp.png)
 
 ## Windows
-Download and install latest [Kitematic](https://kitematic.com/download/):
-Make sure `c:\Users\<Your_Username>\sming` exists
+- Download and install latest [Kitematic](https://kitematic.com/download/)
+- Make sure `c:\Users\<Your_Username>\sming` exists
 
 ### Get sming-docker container from docker hub
 - Click _New_
