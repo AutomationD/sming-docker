@@ -25,6 +25,10 @@ Configure VirtualBox:
 
 This will allow docker get access to usb2serial device connected to our host computer.
 
+Start docker-machine back
+```
+docker-machine start dev
+```
 
 #### Pull latest docker container
 ```
@@ -67,6 +71,12 @@ docker-machine stop dev
 ```
 ![](http://i.imgur.com/x1Po4Yl.png)
 This will allow docker get access to usb2serial device connected to our host computer.
+
+Start docker-machine back
+```
+docker-machine start dev
+```
+
 
 ### Pull latest docker container
 ```

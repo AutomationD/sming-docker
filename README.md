@@ -39,6 +39,12 @@ Configure VirtualBox
 
 This will allow docker get access to usb2serial device connected to our host computer.
 
+Start docker-machine back
+```
+docker-machine start dev
+```
+
+
 Run docker container with usb port forwarding (from Docker cli)
 ```
 docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
@@ -69,6 +75,11 @@ Configure VirtualBox:
 ![](http://i.imgur.com/x1Po4Yl.png)
 
 This will allow docker get access to usb2serial device connected to our host computer.
+
+Start docker-machine back
+```
+docker-machine start dev
+```
 
 Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
