@@ -1,20 +1,24 @@
 Sming Docker
 =============
-Sming docker container is used to simplify environment configuration for cross-platform systems. 
-- Features (beta)
+Sming docker container is used to simplify environment configuration for cross-platform systems.
+
+You will get a self-contained browser based C++ development where you can build your sming projects and flash them to your ESP device!
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/487ab7c5-b4f2-4df9-9900-1450376e451e/00000014.png)
+
+### Features (beta)
   - [KiteMatic](http://kitematic.com) integration for Windows & MacOS
   - Out-of-the-box experience, just run the docker container
   - Fully tested and compatible ESP8266 dev environment without hassle
   - Web-Browser IDE (no Eclipse required)
   - Firmware flashing
 
-- TODO (soon)
+### TODO (soon)
   
   - Convinient terminal connection via _(?)remserial_
 
 
-If something is not working, please refer to [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You can use it instead of Kitematic.
+_If something is not working, please refer to [TROUBLESHOOTING](TROUBLESHOOTING.md).
+Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You can use it instead of Kitematic._
 
 
 # Install & Configure Docker
