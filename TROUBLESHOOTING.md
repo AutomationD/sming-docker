@@ -26,6 +26,11 @@ If nothing is helping, try completely reinstalling everything.
 - Download new setup file for Kitematic
 - Run Kitematic setup as administrator & follow the guidelines
 
+## Build or some feature is not working
+Get latest docker container:
+`docker pull kireevco/sming-docker` or via Kitematic.
+
+
 # MacOS
 TBD, PRs are welcome
 

@@ -9,14 +9,14 @@ You will get a self-contained browser based C++ development where you can build 
   - [KiteMatic](http://kitematic.com) integration for Windows & MacOS
   - Out-of-the-box experience, just run the docker container
   - Fully tested and compatible ESP8266 dev environment without hassle
-  - Web-Browser IDE (no Eclipse required)
+  - Alternative Web-Browser IDE (c9)
+  - [NetBeans](NETBEANS.md) Integration with Code assistance and Doxygen
   - Firmware flashing
+  - Convinient terminal connection ([PR](https://github.com/anakod/Sming/pull/148) pending): Automatic (re) connection after every `make flash`
 
 ### TODO (soon)
+- ?
   
-  - Convinient terminal connection via _(?)remserial_
-
-
 _If something is not working, please refer to [TROUBLESHOOTING](TROUBLESHOOTING.md).
 Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You can use it instead of Kitematic._
 
