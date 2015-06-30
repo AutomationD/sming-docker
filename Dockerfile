@@ -5,7 +5,7 @@
 FROM ubuntu
 
 ENV SDK_VERSION "1.1.1"
-ENV VERSION="0.1.0"
+ENV VERSION="0.1.3"
 
 LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}"
 # ------------------------------------------------------------------------------
