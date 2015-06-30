@@ -145,9 +145,10 @@ to the ```docker run``` command above, but this will force you to have it attach
 
 Now just open in your browser [cloud9 IDE](http://localhost:8180/).
 
-# NetBeans IDE (optional)
+# NetBeans IDE (recommended)
 NetBeans can connect to a docker container and use docker environment to build.
-Code Completion & documentation works well.
+Code completion & documentation works well.
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/50a86587-4069-49dd-afce-3464a58c766a/00000015.png)
 See [NETBEANS.md](NETBEANS.md)
 
 

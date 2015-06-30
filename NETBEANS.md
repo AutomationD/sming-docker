@@ -1,9 +1,12 @@
 # NetBeans Remote IDE
-NetBens can connect to a docker container and use docker environment to build remotely
+NetBens is a beautiful IDE that can connect to a docker container and use docker environment to build remotely
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/50a86587-4069-49dd-afce-3464a58c766a/00000015.png)
 
 You will need:
 - [NetBeans C/C++](https://netbeans.org/downloads/)
 - Project source files on your local machine (for instance, on Mac `~/docker/sming-docker/workspace/Test_Project` or `c:\Users\<Your_Username>\sming\Test_Project` on Windows. It should contain `Makefile` and `Makefile-user.mk`
+
+
 
 ## Create New Remote Host (only one time)
 ### On the _Services_ Tab Right click on the _C/C++ Build Hosts_
