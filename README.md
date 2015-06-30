@@ -24,7 +24,9 @@ Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You ca
 # Install & Configure Docker
 
 ## Prerequisites:
-- This HOWTO is using docker-machine for MacOS and Windows: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
+- __BEFORE GOING ANY FURTHER__ Make sure [Virtualization](https://github.com/kireevco/sming-docker/blob/master/TROUBLESHOOTING.md#enable-hardware-virtualization) is enabled in BIOS
+- Make sure to remove any previous boot2docker versions and it's vms before you proceed
+- It is recommended to [remove](https://github.com/kireevco/sming-docker/blob/master/TROUBLESHOOTING.md#remove-networks-that-are-configured-in-virtualbox-before-installing-kitematic) all unnessesary virtual box VMs and Networks
 
 ## Windows
 - Download and install latest [Kitematic](https://kitematic.com/download/)
