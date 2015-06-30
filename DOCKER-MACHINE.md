@@ -1,7 +1,4 @@
 # Docker Without Kitematic
-## Prerequisites:
-- This HOWTO is using docker-machine: an advanced version of boot2docker. Make sure to remove any boot2docker versions and it's vms before you proceed
-
 ## Windows
 
 ### Install MsysGit
@@ -17,9 +14,20 @@ setx PATH /M "C:\Program Files (x86)\Git\bin;%PATH%" && set PATH="C:\Program Fil
 ```
 
 ### Start bash.exe and run following commands
+__Windows 64 bit:__
 ```
-curl -L https://github.com/docker/machine/releases/download/v0.2.0/docker-machine_windows-amd64.exe > /bin/docker-machine --insecure
+curl -L https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_windows-amd64.exe > /bin/docker-machine --insecure
 curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker
+```
+
+__Windows 32 bit:__
+```
+curl -L https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_windows-386.exe > /bin/docker-machine --insecure
+curl -L https://get.docker.com/builds/Windows/i386/docker-latest.exe
+```
+
+Create a box
+```
 docker-machine -v
 docker-machine create -d virtualbox dev
 ```
