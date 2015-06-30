@@ -1,5 +1,5 @@
-# NetBeans Remote IDE
-NetBens is a beautiful IDE that can connect to a docker container and use docker environment to build remotely
+# NetBeans IDE
+NetBeans is a beautiful IDE that can connect to a docker container and use docker environment to build remotely
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/50a86587-4069-49dd-afce-3464a58c766a/00000015.png)
 
 You will need:
@@ -36,3 +36,20 @@ Select _C/C++ Project with Existing Sources_
 
 Select Project Directory (has to contain your project already) and click __Finish__
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/60e991b1-40a8-48f3-84d6-c1aa3ddcd3f5/00000009.png)
+
+
+# Additional Project Configuration
+Project will require some additional configuration
+
+## Add Run Command
+This will add a convinient ability to flash your project.
+Open __[Project Preferences]__:
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/4aa598fa-8351-43af-9590-7756486606ea/00000016.png)
+
+## Include Directories (optional)
+If you are not using Docker where this happens automatically you will need to add include directories here (`sming/Sming`, `sming/Sming/system/include`, `esp-open-sdk/sdk/include` and others):
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/84bea198-a04a-4754-bcf0-5ba7cbb1e735/00000018.png)
+
+## Environment Variables (optional)
+If you are not using Docker where this happens automatically you might want to add environment variables here (`ESP_HOME`, `SMING_HOME`):
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/af3b1b15-a9da-4502-a46d-924693b744ff/00000019.png)
