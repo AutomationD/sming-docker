@@ -10,7 +10,7 @@ Windows version of Kitematic is still quite new. You can also try bare-bones [do
 Installation won't finish or stuck. Please make sure to try the following steps
 
 ### Enable Hardware Virtualization
-- Make sure your hardware virtualization is enabled in BIOS
+- Make sure your hardware virtualization is [enabled in BIOS](http://docs.fedoraproject.org/en-US/Fedora/13/html/Virtualization_Guide/sect-Virtualization-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html)
 - Make sure _no other_ hypervizor is installed (like Microsoft Hyper-V)
 
 ### Remove networks that are configured in Virtualbox before installing Kitematic
