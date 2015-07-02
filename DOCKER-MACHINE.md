@@ -1,31 +1,16 @@
 # Docker Without Kitematic
 ## Windows
 
-### Install MsysGit
-Use [msysgit](https://msysgit.github.io/) package _OR_ via chocolatey:
+### Install via Chocolatey
 ```cmd
 ::cmd (Admin)
-choco install git
-```
-Make sure to add it to PATH:
-```cmd
-::cmd (Admin)
-setx PATH /M "C:\Program Files (x86)\Git\bin;%PATH%" && set PATH="C:\Program Files (x86)\Git\bin;%PATH%"
+choco install git /GitAndUnixToolsOnPath
+choco install virtualbox
+choco install docker
+choco install docker-machine -version 0.3.0
 ```
 
 ### Start bash.exe and run following commands
-__Windows 64 bit:__
-```
-curl -L https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_windows-amd64.exe > /bin/docker-machine --insecure
-curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker
-```
-
-__Windows 32 bit:__
-```
-curl -L https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_windows-386.exe > /bin/docker-machine --insecure
-curl -L https://get.docker.com/builds/Windows/i386/docker-latest.exe
-```
-
 Create a box
 ```
 docker-machine -v
@@ -45,6 +30,10 @@ Start docker-machine back
 docker-machine start dev
 ```
 
+### Add docker parameters to your shell
+```
+eval `docker-machine env dev`
+```
 
 ### Pull latest docker container
 ```
@@ -52,12 +41,15 @@ docker pull kireevco/sming-docker
 ```
 
 ### Run docker container with usb port forwarding
-Use README.md commands to run docker with required parameters
+Use [README.md commands](README.md#run-docker-container-with-usb-port-forwarding) to run docker with required parameters (`docker run`)
 
-#### Open a browser pointing to c9 IDE
+### Open a browser pointing to c9 IDE 
 ```
 start http://$(docker-machine ip dev):8181
 ```
+
+### Or configure Net Beans
+[Net Beans](NETBEANS.md) can be configured to use Docker environment.
 
 ## MacOS
 Download latest docker-machine and docker client:
