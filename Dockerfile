@@ -96,17 +96,22 @@ ENV SMING_HOME="/opt/sming/Sming"
 ENV CXX="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-g++"
 ENV CC="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc"
 ENV PATH="/opt/esp-open-sdk/xtensa-lx106-elf/bin:${PATH}"
-ENV C_INCLUDE_PATH="\
+ENV CPATH="\
 ${ESP_HOME}/sdk/include:\
 ${SMING_HOME}:\
 ${SMING_HOME}/include:\
 ${SMING_HOME}/SmingCore:\
 ${SMING_HOME}/system/include:\
 ${SMING_HOME}/Libraries:\
-/opt/sming\
+${SMING_HOME}/Services:\
+${SMING_HOME}/Wiring:\
+/opt/sming:\
 ./include\
 "
-ENV CPLUS_INCLUDE_PATH=${C_INCLUDE_PATH}
+
+ENV LIBRARY_PATH="\
+${SMING_HOME}compiler/lib:\
+"
 
 RUN env > /etc/environment
 
