@@ -13,17 +13,20 @@ choco install docker-machine -version 0.3.0 -y
 ### Start bash.exe and run following commands
 Create a box
 ```
+#bash.exe
 docker-machine -v
 docker-machine create -d virtualbox dev
 ```
 
 Stop docker-machine
 ```
+#bash.exe
 docker-machine stop dev
 ```
 Make sure to add your usb port forwarding to Virtual Box.
 ![](http://i.imgur.com/x1Po4Yl.png)
-This will allow docker get access to usb2serial device connected to our host computer.
+
+_This will allow docker get access to usb2serial device connected to our host computer._
 
 Start docker-machine back
 ```
@@ -72,7 +75,7 @@ docker-machine stop dev
 Configure VirtualBox:
 ![](http://i.imgur.com/x1Po4Yl.png)
 
-This will allow docker get access to usb2serial device connected to our host computer.
+_This will allow docker get access to usb2serial device connected to our host computer._
 
 Start docker-machine back
 ```
