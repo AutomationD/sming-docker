@@ -5,9 +5,10 @@
 FROM ubuntu
 
 ENV SDK_VERSION "1.1.1"
-ENV VERSION="0.1.3"
+ENV SPIFFY_VERSION "1.0.4"
+ENV VERSION="0.1.4"
 
-LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}"
+LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
 # ------------------------------------------------------------------------------
 # Install base
 ENV DEBIAN_FRONTEND=noninteractive
@@ -50,7 +51,7 @@ RUN apt-get install -y nodejs
 # ------------------------------------------------------------------------------
 # Install spiffy
 WORKDIR /tmp/
-RUN wget https://bintray.com/artifact/download/kireevco/generic/spiffy-linux-1.0.1.tar.gz && tar -zxf spiffy-linux-1.0.1.tar.gz && mv spiffy /usr/local/bin/ && chmod +rx /usr/local/bin/spiffy
+RUN wget https://bintray.com/artifact/download/kireevco/generic/spiffy-${SPIFFY_VERSION}-linux-x86_64.tar.gz && tar -zxf spiffy-${SPIFFY_VERSION}-linux-x86_64.tar.gz && mv spiffy /usr/local/bin/ && chmod +rx /usr/local/bin/spiffy
 
 
 # ------------------------------------------------------------------------------
@@ -95,7 +96,16 @@ ENV SMING_HOME="/opt/sming/Sming"
 ENV CXX="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-g++"
 ENV CC="/opt/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc"
 ENV PATH="/opt/esp-open-sdk/xtensa-lx106-elf/bin:${PATH}"
-ENV C_INCLUDE_PATH="${ESP_HOME}/sdk/include:${SMING_HOME}:${SMING_HOME}/include:${SMING_HOME}/SmingCore:${SMING_HOME}/system/include:${SMING_HOME}/Libraries:/opt/sming"
+ENV C_INCLUDE_PATH="\
+${ESP_HOME}/sdk/include:\
+${SMING_HOME}:\
+${SMING_HOME}/include:\
+${SMING_HOME}/SmingCore:\
+${SMING_HOME}/system/include:\
+${SMING_HOME}/Libraries:\
+/opt/sming\
+./include\
+"
 ENV CPLUS_INCLUDE_PATH=${C_INCLUDE_PATH}
 
 RUN env > /etc/environment
