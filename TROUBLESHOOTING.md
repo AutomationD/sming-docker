@@ -15,7 +15,7 @@ Installation won't finish or stuck. Please make sure to try the following steps
 
 ### Remove networks that are configured in Virtualbox before installing Kitematic
 Sometimes there is an issue with initial Kitematic configuration (stuck at 99%)
-~[](http://content.screencast.com/users/kireevco/folders/Jing/media/f3299842-9e77-4699-b117-d7d2528226f0/00000026.png)
+~[](http://content.screencast.com/users/kireevco/folders/Jing/media/bb1e46d4-b7ec-4272-90c8-5443692229db/00000028.png)
 - Go to VirtualBox Preferences -> Network
 - Remove everything from NAT Networks & Host-Only Networks
 - Close VirtualBox and restart Kitematic
