@@ -4,10 +4,10 @@
 ### Install via Chocolatey
 ```cmd
 ::cmd (Admin)
-choco install git /GitAndUnixToolsOnPath
-choco install virtualbox
-choco install docker
-choco install docker-machine -version 0.3.0
+choco install git --params="/GitAndUnixToolsOnPath /NoAutoCrlf" -y
+choco install virtualbox -y
+choco install docker -y
+choco install docker-machine -version 0.3.0 -y
 ```
 
 ### Start bash.exe and run following commands
