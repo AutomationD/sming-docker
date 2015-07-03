@@ -39,7 +39,8 @@ Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You ca
 - Click _Create_
 
 ### Open Docker CLI
-![](http://i.imgur.com/bR6uUne.png)
+Click on __DOCKER CLI__ button
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/61230801-a794-4a01-9cbe-f4545bec50c0/00000027.png)
 
 ### Make sure to add USB port forwarding
 Stop docker-machine
