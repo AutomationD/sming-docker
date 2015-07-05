@@ -31,7 +31,8 @@ Kitematic is, pretty much, a GUI for [docker-machine](DOCKER-MACHINE.md). You ca
 
 ## Windows
 - Download and install latest [Kitematic](https://kitematic.com/download/)
-- Make sure `c:\Users\<Your_Username>\sming` exists
+- Make sure `c:\Users\<Your_Username>\sming` exists - docker will map this directory to `~/workspace`. 
+- Place your project (`Basic_Blink`) to `c:\Users\<Your_Username>\sming`. You will need it to import to NetBeans.
 
 ### Get sming-docker container from docker hub
 - Click _New_
