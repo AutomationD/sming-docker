@@ -164,7 +164,7 @@ See [NETBEANS.md](NETBEANS.md)
 
 ## Global Environmental Variables
 You can set your gloval Environmental Variables in Kitematic. Just make sure to restart the container after adding/changing ones.
-![](http://content.screencast.com/users/kireevco/folders/Jing/media/fd30f8ab-a3a7-43e6-8d7d-214144d145c0/00000036.png)
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/a5916c91-3c8d-4bb4-b5c4-baa2a546de06/00000037.png)
 
 ---
 This repository contains Dockerfile of [Sming framework](github.com/anakod/Sming), [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) and [Cloud9 IDE](https://github.com/c9/core) with [Cloud 9 C++ Plugin](https://github.com/invokr/c9.ide.language.cpp). Automated build published to the public Docker Hub Registry.
