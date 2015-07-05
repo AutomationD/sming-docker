@@ -45,7 +45,7 @@ Click on __DOCKER CLI__ button
 ### Make sure to add USB port forwarding
 Stop docker-machine
 ```
-docker-machine stop dev
+docker-machine stop kitematic
 ```
 Configure VirtualBox:
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/51230272-4b1e-47c4-b2cb-1edf3bc77ee2/00000029.png)
@@ -54,7 +54,7 @@ This will allow docker get access to usb2serial device connected to our host com
 
 Start docker-machine back
 ```
-docker-machine start dev
+docker-machine start kitematic
 ```
 
 Run docker container with usb port forwarding (from Docker cli)
@@ -84,7 +84,7 @@ Click on __DOCKER CLI__ button
 ### Make sure to add USB port forwarding
 Stop docker-machine
 ```
-docker-machine stop dev
+docker-machine stop kitematic
 ```
 Configure VirtualBox
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/51230272-4b1e-47c4-b2cb-1edf3bc77ee2/00000029.png)
@@ -93,7 +93,7 @@ This will allow docker get access to usb2serial device connected to our host com
 
 Start docker-machine back
 ```
-docker-machine start dev
+docker-machine start kitematic
 ```
 
 
