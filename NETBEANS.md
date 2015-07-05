@@ -50,7 +50,7 @@ Open __[Project Preferences]__:
 If you are not using Docker where this happens automatically you will need to add include directories here (`sming/Sming`, `sming/Sming/system/include`, `esp-open-sdk/sdk/include` and others):
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/84bea198-a04a-4754-bcf0-5ba7cbb1e735/00000018.png)
 
-## Environment Variables (optional)
+## Project Variables (optional)
 If you are not using Docker where this happens automatically you might want to add environment variables here (`ESP_HOME`, `SMING_HOME`):
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/af3b1b15-a9da-4502-a46d-924693b744ff/00000019.png)
 

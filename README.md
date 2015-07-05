@@ -153,12 +153,18 @@ to the ```docker run``` command above, but this will force you to have it attach
 
 Now just open in your browser [cloud9 IDE](http://localhost:8180/).
 
-# NetBeans IDE (recommended)
+
+# Additional Tools & Settings
+
+## NetBeans IDE (recommended)
 NetBeans can connect to a docker container and use docker environment to build.
 Code completion & documentation works well.
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/50a86587-4069-49dd-afce-3464a58c766a/00000015.png)
 See [NETBEANS.md](NETBEANS.md)
 
+## Global Environmental Variables
+You can set your gloval Environmental Variables in Kitematic. Just make sure to restart the container after adding/changing ones.
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/fd30f8ab-a3a7-43e6-8d7d-214144d145c0/00000036.png)
 
 ---
 This repository contains Dockerfile of [Sming framework](github.com/anakod/Sming), [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) and [Cloud9 IDE](https://github.com/c9/core) with [Cloud 9 C++ Plugin](https://github.com/invokr/c9.ide.language.cpp). Automated build published to the public Docker Hub Registry.
