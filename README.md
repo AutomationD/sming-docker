@@ -60,6 +60,7 @@ docker-machine start kitematic
 
 Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
+(There is a [feature request](https://github.com/kitematic/kitematic/issues/764) that will allow skip this step). Please vote for it!
 ```
 docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
 ```
@@ -98,7 +99,8 @@ docker-machine start kitematic
 ```
 
 
-Run docker container with usb port forwarding (from Docker cli)
+### Run docker container with usb port forwarding (from Docker cli)
+(There is a [feature request](https://github.com/kitematic/kitematic/issues/764) that will allow skip this step). Please vote for it!
 ```
 docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
 ```
@@ -128,7 +130,7 @@ Fetch latest sming-docker:
 docker pull sming-docker
 ```
 
-Run the conatiner, binding directory with workspace to the container and binding container's ports to localhost:
+### Run the conatiner, binding directory with workspace to the container and binding container's ports to localhost:
 ```
 docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
 -v ~/my_workspace/esp8266:/root/workspace:rw \
