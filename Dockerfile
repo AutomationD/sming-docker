@@ -110,7 +110,7 @@ ${SMING_HOME}/Wiring:\
 "
 
 ENV LIBRARY_PATH="\
-${SMING_HOME}compiler/lib:\
+${SMING_HOME}/compiler/lib:\
 "
 
 RUN env > /etc/environment
