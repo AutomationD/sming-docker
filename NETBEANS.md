@@ -53,3 +53,10 @@ If you are not using Docker where this happens automatically you will need to ad
 ## Environment Variables (optional)
 If you are not using Docker where this happens automatically you might want to add environment variables here (`ESP_HOME`, `SMING_HOME`):
 ![](http://content.screencast.com/users/kireevco/folders/Jing/media/af3b1b15-a9da-4502-a46d-924693b744ff/00000019.png)
+
+## Additional Make Targets (optional)
+If you would like to add custom make targets (`make flash_update` for example),you can do it by right clicking on your makefile
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/15c9c0ee-c4fd-4ca9-b91b-dafa9b3a0a6f/00000034.png)
+Add a target:
+![](http://content.screencast.com/users/kireevco/folders/Jing/media/4199cf71-c4bd-4829-9988-3bdb96e65dfd/00000035.png)
+
