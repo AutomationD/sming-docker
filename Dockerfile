@@ -6,7 +6,7 @@ FROM ubuntu
 
 ENV SDK_VERSION "1.1.1"
 ENV SPIFFY_VERSION "1.0.4"
-ENV VERSION="0.1.5"
+ENV VERSION="0.2.1"
 
 LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
 # ------------------------------------------------------------------------------
@@ -61,6 +61,11 @@ RUN mkdir -p /opt/esp-open-sdk
 RUN wget https://bintray.com/artifact/download/kireevco/generic/esp-open-sdk-${SDK_VERSION}-linux-x86_64.tar.gz && tar -zxf esp-open-sdk-${SDK_VERSION}-linux-x86_64.tar.gz -C /opt/esp-open-sdk
 RUN chmod +rx /opt/esp-open-sdk/sdk/tools/gen_appbin.py
 
+# ------------------------------------------------------------------------------
+# Install patched esptool
+WORKDIR /opt/esp-open-sdk/esptool
+RUN mv esptool.py esptool.py_orig
+RUN wget https://raw.githubusercontent.com/nodemcu/nodemcu-firmware/master/tools/esptool.py
 
 # ------------------------------------------------------------------------------
 # Install Cloud9
