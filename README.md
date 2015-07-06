@@ -163,8 +163,13 @@ Code completion & documentation works well.
 See [NETBEANS.md](NETBEANS.md)
 
 ## Global Environmental Variables
-You can set your gloval Environmental Variables in Kitematic. Just make sure to restart the container after adding/changing ones.
-![](http://content.screencast.com/users/kireevco/folders/Jing/media/a5916c91-3c8d-4bb4-b5c4-baa2a546de06/00000037.png)
+Currently in order to pass additional variables to docker we need to pass it adding each variable with `-e` parameter like this: `docker run -e WIFI_SSID=YourWifiAP -e WIFI_PWD=YourWifiPass`. 
+
+Parameters __WIFI_SSID__ and __WIFI_PWD__ can be also specified in Makefile-user.mk:
+```
+WIFI_SSID = YourWifiAP
+WIFI_PWD = YourWifiPass
+```
 
 ---
 This repository contains Dockerfile of [Sming framework](github.com/anakod/Sming), [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk) and [Cloud9 IDE](https://github.com/c9/core) with [Cloud 9 C++ Plugin](https://github.com/invokr/c9.ide.language.cpp). Automated build published to the public Docker Hub Registry.
