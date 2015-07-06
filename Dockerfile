@@ -119,6 +119,8 @@ ENV LIBRARY_PATH="\
 ${SMING_HOME}/compiler/lib:\
 "
 
+ENV COM_SPEED_ESPTOOL=230400
+
 RUN env > /etc/environment
 
 # ------------------------------------------------------------------------------

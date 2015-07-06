@@ -165,7 +165,7 @@ See [NETBEANS.md](NETBEANS.md)
 ## Global Environmental Variables
 Currently in order to pass additional variables to docker we need to pass it adding each variable with `-e` parameter like this: `docker run -e WIFI_SSID=YourWifiAP -e WIFI_PWD=YourWifiPass`. 
 
-Parameters __WIFI_SSID__ and __WIFI_PWD__ can be also specified in Makefile-user.mk:
+Parameters __WIFI_SSID__ and __WIFI_PWD__ can be also specified in _Makefile-user.mk_:
 ```
 WIFI_SSID = YourWifiAP
 WIFI_PWD = YourWifiPass
