@@ -66,6 +66,7 @@ RUN chmod +rx /opt/esp-open-sdk/sdk/tools/gen_appbin.py
 WORKDIR /opt/esp-open-sdk/esptool
 RUN mv esptool.py esptool.py_orig
 RUN wget https://raw.githubusercontent.com/nodemcu/nodemcu-firmware/master/tools/esptool.py
+RUN chmod +rx esptool.py
 
 # ------------------------------------------------------------------------------
 # Install Cloud9
@@ -124,7 +125,6 @@ RUN env > /etc/environment
 # Expose ports.
 EXPOSE 22
 EXPOSE 80
-EXPOSE 4075
 EXPOSE 10000
 
 
