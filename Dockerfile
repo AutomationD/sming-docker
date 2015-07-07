@@ -4,9 +4,9 @@
 # Pull base image.
 FROM ubuntu
 
-ENV SDK_VERSION "1.1.1"
+ENV SDK_VERSION "1.1.2"
 ENV SPIFFY_VERSION "1.0.4"
-ENV VERSION="0.2.1"
+ENV VERSION="0.3.1"
 
 LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
 # ------------------------------------------------------------------------------
