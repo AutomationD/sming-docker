@@ -4,11 +4,8 @@
 # Pull base image.
 FROM ubuntu
 
-ENV SDK_VERSION "1.1.2"
-ENV SPIFFY_VERSION "1.0.4"
-ENV VERSION="0.3.1"
-
-LABEL "version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
+# Last base packages update
+LABEL BASE_PACKAGES_UPDATE="2015-07-06"
 # ------------------------------------------------------------------------------
 # Install base
 ENV DEBIAN_FRONTEND=noninteractive
@@ -18,7 +15,6 @@ RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git lib
 
 # ------------------------------------------------------------------------------
 # Install Supervisor.
-
 RUN apt-get install -y supervisor
 RUN sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
 
@@ -31,6 +27,16 @@ RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/ss
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+
+# ------------------------------------------------------------------------------
+# Versions
+
+ENV SDK_VERSION "1.1.2"
+ENV SPIFFY_VERSION "1.0.4"
+ENV VERSION="0.4.1"
+
+LABEL description="version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
+LABEL release_notes="Update for Sming PR#148"
 
 # ------------------------------------------------------------------------------
 # Install openjdk-7 & yuicompressor
