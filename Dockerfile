@@ -9,12 +9,7 @@ LABEL BASE_PACKAGES_UPDATE="2015-07-11"
 # ------------------------------------------------------------------------------
 # Install base
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get clean
-RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim screen
-
-# ------------------------------------------------------------------------------
-# Install openjdk-7-jre
+RUN apt-get clean && apt-get update && apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm-3.4 libclang1 libclang-dev mc vim screen
 RUN apt-get install -y openjdk-7-jre
 
 # ------------------------------------------------------------------------------
