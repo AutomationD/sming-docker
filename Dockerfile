@@ -5,13 +5,17 @@
 FROM ubuntu
 
 # Last base packages update
-LABEL BASE_PACKAGES_UPDATE="2015-07-06"
+LABEL BASE_PACKAGES_UPDATE="2015-07-11"
 # ------------------------------------------------------------------------------
 # Install base
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs make autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed python-serial srecord bc wget llvm libclang1 libclang-dev mc vim screen
+
+# ------------------------------------------------------------------------------
+# Install openjdk-7-jre
+RUN apt-get install -y openjdk-7-jre
 
 # ------------------------------------------------------------------------------
 # Install Supervisor.
@@ -29,8 +33,13 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # ------------------------------------------------------------------------------
-# Versions
+# Install Node.js
+RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN apt-get install -y nodejs
 
+
+# ------------------------------------------------------------------------------
+# Versions
 ENV SDK_VERSION "1.1.2"
 ENV SPIFFY_VERSION "1.0.4"
 ENV VERSION="0.4.1"
@@ -39,8 +48,7 @@ LABEL description="version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VE
 LABEL release_notes="Update for Sming PR#148"
 
 # ------------------------------------------------------------------------------
-# Install openjdk-7 & yuicompressor
-RUN apt-get install -y openjdk-7-jre
+# Install yuicompressor
 WORKDIR /tmp
 RUN wget https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar
 RUN mv /tmp/yuicompressor-2.4.8.jar /usr/local/share/
@@ -48,10 +56,6 @@ RUN echo "java -jar /usr/local/share/yuicompressor-2.4.8.jar \"\$@\"" > /usr/loc
 RUN chmod 755 /usr/local/bin/yuicompressor
 
 
-# ------------------------------------------------------------------------------
-# Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup | bash -
-RUN apt-get install -y nodejs
     
 
 # ------------------------------------------------------------------------------
