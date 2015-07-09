@@ -35,9 +35,10 @@ RUN apt-get install -y nodejs
 
 # ------------------------------------------------------------------------------
 # Versions
-ENV SDK_VERSION "1.1.2"
+ENV VERSION="0.6"
+ENV SDK_VERSION "1.2"
 ENV SPIFFY_VERSION "1.0.4"
-ENV VERSION="0.4.1"
+
 
 LABEL description="version: ${VERSION}\nsdk: ${SDK_VERSION}\nspiffy: ${SPIFFY_VERSION}"
 LABEL release_notes="Update for Sming PR#148"
