@@ -6,6 +6,8 @@ SMING_HOME='/opt/sming/Sming'
 CXX="${ESP_HOME}/xtensa-lx106-elf/bin/xtensa-lx106-elf-g++"
 CC="${ESP_HOME}/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc"
 PATH="${ESP_HOME}/xtensa-lx106-elf/bin:${PATH}"
+COMPILER_PATH="${ESP_HOME}/xtensa-lx106-elf/bin"
+COMPILER_PREFIX="xtensa-lx106-elf"
 
 CPATH="\
 ${ESP_HOME}/sdk/include:\
@@ -43,13 +45,22 @@ echo "Add CPATH"
 /usr/libexec/PlistBuddy -c "Delete :LSEnvironment:CPATH" $NB_APP/Contents/Info.plist
 /usr/libexec/PlistBuddy -c "Add :LSEnvironment:CPATH string '${CPATH}'" $NB_APP/Contents/Info.plist
 
-echo "Add CC"
-/usr/libexec/PlistBuddy -c "Delete :LSEnvironment:CC" $NB_APP/Contents/Info.plist
-/usr/libexec/PlistBuddy -c "Add :LSEnvironment:CC string '${CC}'" $NB_APP/Contents/Info.plist
+echo "Add COMPILER_PATH"
+/usr/libexec/PlistBuddy -c "Delete :LSEnvironment:COMPILER_PATH" $NB_APP/Contents/Info.plist
+/usr/libexec/PlistBuddy -c "Add :LSEnvironment:COMPILER_PATH string '${COMPILER_PATH}'" $NB_APP/Contents/Info.plist
 
-echo "Add CXX"
-/usr/libexec/PlistBuddy -c "Delete :LSEnvironment:CXX" $NB_APP/Contents/Info.plist
-/usr/libexec/PlistBuddy -c "Add :LSEnvironment:CXX string '${CXX}'" $NB_APP/Contents/Info.plist
+echo "Add COMPILER_PREFIX"
+/usr/libexec/PlistBuddy -c "Delete :LSEnvironment:COMPILER_PREFIX" $NB_APP/Contents/Info.plist
+/usr/libexec/PlistBuddy -c "Add :LSEnvironment:COMPILER_PREFIX string '${COMPILER_PREFIX}'" $NB_APP/Contents/Info.plist
+
+
+
 
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -v -f $NB_APP
+```
+
+
+#### If your serial device changes names on every reconnect you can link it like this:
+```
+sudo ln -s /dev/tty.wchusbserial* /dev/tty.usbserial
 ```
