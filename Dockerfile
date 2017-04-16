@@ -101,6 +101,7 @@ RUN ln -s /opt/sming /root/sming-examples
 # Clone esptool2
 WORKDIR /opt/sming/Sming
 RUN git clone https://github.com/raburton/esptool2
+RUN make -C esptool2
 
 # ------------------------------------------------------------------------------
 # Enviromnent settings
