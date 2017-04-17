@@ -62,7 +62,7 @@ Run docker container with usb port forwarding (from Docker cli)
 ### Run docker container with usb port forwarding
 (There is a [feature request](https://github.com/kitematic/kitematic/issues/764) that will allow skip this step). Please vote for it!
 ```
-docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=//dev/ttyUSB0 -v /c/Users/$env:username/sming/:/root/workspace/ fernandopasse/sming-docker
 ```
 _USB device has to be connected. Otherwise omit ```--device=//dev/ttyUSB0``` portion_, `c:\Users\<your_user>\sming` also has to exist
 
@@ -102,7 +102,7 @@ docker-machine start kitematic
 ### Run docker container with usb port forwarding (from Docker cli)
 (There is a [feature request](https://github.com/kitematic/kitematic/issues/764) that will allow skip this step). Please vote for it!
 ```
-docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ kireevco/sming-docker
+docker run -it -d -p 8181:80 -p 8122:22 -p 4075:4075 --device=/dev/ttyUSB0 -v ~/docker/sming-docker/workspace/:/root/workspace/ fernandopasse/sming-docker
 ```
 _USB device has to be connected. Otherwise omit ```--device=/dev/ttyUSB0``` portion_, `~/docker/sming-docker/workspace/` also has to exist.
 
@@ -134,7 +134,7 @@ docker pull sming-docker
 ```
 docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
 -v ~/my_workspace/esp8266:/root/workspace:rw \
-kireevco/sming-docker
+fernandopasse/sming-docker
 ```
 
 If you want to use git inside the container, it's good to make your keys available inside. Use the following command instead:
@@ -142,7 +142,7 @@ If you want to use git inside the container, it's good to make your keys availab
 docker run -d --name esp -p 8180:80 -p 8122:22 -p 4075:4075 -p 10000:10000 \
 -v ~/.ssh:/root/.ssh \
 -v ~/my_workspace/esp8266:/root/workspace:rw \
-kireevco/sming-docker
+fernandopasse/sming-docker
 ```
 
 If you want to make your USB-serial converter available in the container, add:
